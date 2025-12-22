@@ -1,0 +1,338 @@
+@import url("/src/assets/fonts/fonts.css");
+@import url("/src/assets/colors/colors.css");
+
+.statisticsPage {
+  width: 100%;
+  max-width: 1366px;
+  padding: 40px 29px;
+  margin: 0 auto;
+}
+
+/* Заголовок страницы */
+.statisticsTitle {
+  font-family: "Kontora", sans-serif;
+  font-weight: 700;
+  font-style: bold;
+  font-size: 55px;
+  color: rgba(0, 52, 102, 1);
+  margin: 0 0 40px 0;
+  line-height: 1.2;
+}
+
+/* Основное окно с информацией */
+.statisticsInfoContainer {
+  width: 100%;
+  max-width: 1308px;
+  background: #ffffff;
+  border-radius: 25px;
+  padding: 40px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 6px 2px rgba(0, 52, 102, 0.42);
+  margin: 0 auto;
+}
+
+/* Верхняя строка с заголовком */
+.statisticsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+/* Основной заголовок слева */
+.statisticsMainTitle {
+  font-family: "Kontora", sans-serif;
+  font-weight: 700;
+  font-style: bold;
+  font-size: 38px;
+  color: rgba(0, 52, 102, 1);
+  margin: 0;
+  flex: 1;
+}
+
+/* Период справа */
+.statisticsPeriod {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.periodTitle {
+  font-family: "Kontora", sans-serif;
+  font-weight: 400;
+  font-style: regular;
+  font-size: 30px;
+  color: rgba(0, 52, 102, 1);
+  margin: 0;
+  text-align: right;
+}
+
+/* Сетка статистики */
+.statisticsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Карточка статистики */
+.statCard {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 52, 102, 0.1);
+}
+
+.statCardTitle {
+  font-family: "Kontora", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: rgba(0, 52, 102, 1);
+  margin: 0 0 15px 0;
+}
+
+.statCardValue {
+  font-family: "Cantora One", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #003466;
+  margin: 0 0 10px 0;
+}
+
+.statCardDescription {
+  font-family: "Cantora One", sans-serif;
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+/* Диаграмма/График */
+.chartContainer {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 40px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chartTitle {
+  font-family: "Kontora", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: rgba(0, 52, 102, 1);
+  margin: 0 0 20px 0;
+}
+
+.chartPlaceholder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 2px dashed #cbd5e1;
+}
+
+.chartPlaceholderText {
+  font-family: "Cantora One", sans-serif;
+  font-size: 18px;
+  color: #64748b;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Таблица статистики */
+.statisticsTableContainer {
+  overflow-x: auto;
+  margin-bottom: 40px;
+}
+
+.statisticsTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Kontora", sans-serif;
+  min-width: 600px;
+}
+
+.statisticsTable th {
+  background: #f1f5f9;
+  padding: 15px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 16px;
+  color: #003466;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.statisticsTable td {
+  padding: 15px 20px;
+  font-size: 15px;
+  color: #333333;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.statisticsTable tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Кнопки экспорта */
+.exportButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  padding-top: 30px;
+  border-top: 2px solid #f1f5f9;
+}
+
+.exportButton {
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid #003466;
+  background: #ffffff;
+  color: #003466;
+  font-family: "Kontora", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exportButton:hover {
+  background: #003466;
+  color: #ffffff;
+}
+
+/* Адаптивность */
+@media (max-width: 1300px) {
+  .statisticsPage {
+    padding: 30px 20px;
+  }
+
+  .statisticsInfoContainer {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .statisticsPage {
+    padding: 20px 15px;
+  }
+
+  .statisticsTitle {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
+  .statisticsInfoContainer {
+    padding: 20px;
+  }
+
+  .statisticsHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+  }
+
+  .statisticsMainTitle {
+    font-size: 30px;
+    width: 100%;
+  }
+
+  .statisticsPeriod {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .periodTitle {
+    text-align: left;
+    font-size: 24px;
+  }
+
+  .statisticsGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .statCard {
+    padding: 20px;
+  }
+
+  .statCardValue {
+    font-size: 28px;
+  }
+
+  .chartContainer {
+    padding: 20px;
+    min-height: 250px;
+  }
+
+  .chartTitle {
+    font-size: 20px;
+  }
+
+  .exportButtons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .exportButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .statisticsTitle {
+    font-size: 32px;
+  }
+
+  .statisticsMainTitle {
+    font-size: 26px;
+  }
+
+  .periodTitle {
+    font-size: 20px;
+  }
+
+  .statisticsInfoContainer {
+    padding: 16px;
+  }
+
+  .statCard {
+    padding: 16px;
+  }
+
+  .statCardTitle {
+    font-size: 18px;
+  }
+
+  .statCardValue {
+    font-size: 24px;
+  }
+
+  .chartContainer {
+    padding: 16px;
+    min-height: 200px;
+  }
+
+  .chartPlaceholderText {
+    font-size: 16px;
+  }
+}

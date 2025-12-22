@@ -1,0 +1,178 @@
+@import url("/src/assets/fonts/fonts.css");
+@import url("/src/assets/colors/colors.css");
+
+.participantsTable {
+  width: 1243px;
+  height: 456px;
+  background: white;
+  border: 1px solid #d5e2f1;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.tableHeader {
+  background: #f8fafd;
+  border-bottom: 1px solid #d5e2f1;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.tableBody {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.tableRow {
+  display: flex;
+  align-items: center;
+  min-height: 60px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableRow:hover {
+  background-color: #f9f9f9;
+}
+
+.tableCell {
+  padding: 15px 20px;
+  font-family: "Kontora", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Ширины столбцов */
+.tableCell.number {
+  width: 60px;
+  min-width: 60px;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.tableCell.name {
+  flex: 2;
+  min-width: 250px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* Бейдж с общими баллами */
+.totalPointsBadge {
+  font-size: 12px;
+  color: #2e7d32;
+  background-color: #e8f5e9;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.tableCell.group {
+  flex: 1;
+  min-width: 150px;
+}
+
+.tableCell.school {
+  flex: 1;
+  min-width: 200px;
+}
+
+.tableCell.attended {
+  width: 100px;
+  min-width: 100px;
+  justify-content: center;
+}
+
+.tableCell.points {
+  width: 100px;
+  min-width: 100px;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--blueColor);
+}
+
+/* Стили для чекбокса */
+.attendanceCheckbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--blueColor);
+}
+
+/* Стилизация скроллбара таблицы */
+.tableBody::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tableBody::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.tableBody::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.tableBody::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Адаптивность */
+@media (max-width: 1300px) {
+  .participantsTable {
+    width: 100%;
+    max-width: 1243px;
+  }
+}
+
+@media (max-width: 768px) {
+  .participantsTable {
+    height: 400px;
+  }
+
+  .tableCell {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .tableCell.number {
+    width: 40px;
+    min-width: 40px;
+  }
+
+  .tableCell.name {
+    min-width: 150px;
+  }
+
+  .tableCell.group,
+  .tableCell.school {
+    min-width: 120px;
+  }
+
+  .tableCell.attended,
+  .tableCell.points {
+    width: 80px;
+    min-width: 80px;
+  }
+
+  .totalPointsBadge {
+    font-size: 10px;
+    padding: 1px 6px;
+  }
+}

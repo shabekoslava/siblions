@@ -1,0 +1,24 @@
+@import url("/src/assets/fonts/fonts.css");
+@import url("/src/assets/colors/colors.css");
+
+.navigation {
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+}
+
+.navigationList {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 43px;
+}
+
+.navigationItem {
+  /* Убедитесь, что элементы не сжимаются */
+  flex-shrink: 0;
+}

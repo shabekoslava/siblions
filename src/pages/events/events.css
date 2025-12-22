@@ -1,0 +1,132 @@
+@import url("/src/assets/fonts/fonts.css");
+@import url("/src/assets/colors/colors.css");
+
+.eventsPage {
+  padding: 40px 29px;
+  min-height: calc(100vh - 120px);
+}
+
+.eventsHeaderSection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.eventsTabsContainer {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.eventsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.noEventsMessage {
+  text-align: left; /* Текст прижат к левому краю */
+  color: #666;
+  font-size: 18px;
+  font-family: "Kontora", sans-serif;
+  padding-left: 0; /* Убираем отступы */
+  margin: 0; /* Убираем отступы */
+}
+
+/* Стили для формы в модальном окне */
+.modal__title {
+  font-size: 28px;
+  color: var(--blueColor);
+  margin: 0 0 30px 0;
+  text-align: center;
+  font-family: "Kontora", sans-serif;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form__group label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  font-family: "Kontora", sans-serif;
+}
+
+.form__group input,
+.form__group textarea {
+  padding: 12px 16px;
+  border: 1px solid #d5e2f1;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: "Kontora", sans-serif;
+  background: white;
+}
+
+.form__group input:focus,
+.form__group textarea:focus {
+  outline: none;
+  border-color: var(--blueColor);
+  box-shadow: 0 0 0 2px rgba(var(--blueColor-rgb, 11, 60, 117), 0.1);
+}
+
+.form__group input::placeholder,
+.form__group textarea::placeholder {
+  color: #999;
+}
+
+.modal__actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #eee;
+}
+
+.modal__cancel {
+  padding: 12px 40px;
+  border: 1px solid #d5e2f1;
+  background: white;
+  border-radius: 8px;
+  color: var(--blueColor);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Kontora", sans-serif;
+  transition: all 0.2s;
+}
+
+.modal__submit {
+  padding: 12px 40px;
+  border: none;
+  background: var(--blueColor);
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Kontora", sans-serif;
+  transition: background 0.2s;
+}
+
+.modal__cancel:hover {
+  background: #f5f8fc;
+  border-color: var(--blueColor);
+}
+
+.modal__submit:hover {
+  background: var(--darkBlueColor);
+}

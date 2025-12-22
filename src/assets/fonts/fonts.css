@@ -1,0 +1,30 @@
+@font-face {
+  font-family: Kontora;
+  src: url(./Kontora/OTF/Kontora.otf) format("opentype"),
+    url(./Kontora/WOFF/Kontora.woff) format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Kontora;
+  src: url(./Kontora/OTF/Kontora_bold.otf) format("opentype"),
+    url(./Kontora/WOFF/Kontora_bold.woff) format("woff");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Kontora;
+  src: url(./Kontora/OTF/Kontora_thin.otf) format("opentype"),
+    url(./Kontora/WOFF/Kontora_thin.woff) format("woff");
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: CantoraOne;
+  src: url(./CantoraOne/CantoraOne-Regular.ttf) format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}

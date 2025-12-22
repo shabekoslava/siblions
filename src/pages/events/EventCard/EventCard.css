@@ -1,0 +1,234 @@
+@import url("/src/assets/fonts/fonts.css");
+@import url("/src/assets/colors/colors.css");
+
+/* Общие стили для карточки */
+.eventCard {
+  background: white;
+  border: 1px solid #d5e2f1;
+  border-radius: 25px;
+  padding: 40px;
+  margin-bottom: 30px;
+  transition: box-shadow 0.3s;
+  width: 100%;
+  max-width: 1308px;
+  box-sizing: border-box;
+}
+
+.eventCard:hover {
+  box-shadow: 0 4px 20px rgba(11, 60, 117, 0.1);
+}
+
+/* Секция заголовка, кнопки редактирования, даты и места */
+.eventCard__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Заголовок с кнопкой - кнопка прижата к тексту */
+.eventCard__titleSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 300px;
+}
+
+.eventCard__title {
+  font-family: "Kontora", sans-serif;
+  font-weight: 700;
+  font-size: 38px;
+  color: var(--blueColor);
+  margin: 0;
+  line-height: 1.2;
+  /* flex: 1; - УДАЛЕНО! */
+  word-break: break-word; /* Помогает при длинных словах */
+}
+
+/* Кнопка редактирования - прижата к заголовку */
+.eventCard__editIconButton {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+}
+
+.eventCard__editIconButton:hover {
+  opacity: 0.7;
+}
+
+.eventCard__editIconButton img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.eventCard__headerInfo {
+  display: flex;
+  align-items: center;
+  min-width: 300px;
+  justify-content: flex-end;
+}
+
+.eventCard__locationDate {
+  font-family: "Kontora", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #003466;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: flex-end;
+}
+
+.eventCard__location,
+.eventCard__date,
+.eventCard__time {
+  color: #003466;
+}
+
+.eventCard__separator {
+  color: #003466;
+  opacity: 0.7;
+}
+
+/* Общие стили для секций */
+.eventCard__descriptionSection,
+.eventCard__tasksSection,
+.eventCard__organizersSection,
+.eventCard__pointsSection,
+.eventCard__participantsSection {
+  margin-bottom: 35px;
+}
+
+/* Заголовки секций - как было раньше */
+.eventCard__sectionTitle {
+  font-family: "Cantora One", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  color: #003466;
+  margin: 0 0 15px 0;
+}
+
+/* Текст описания, задач, организаторов, баллов - как было раньше */
+.eventCard__description,
+.eventCard__tasks,
+.eventCard__organizers,
+.eventCard__pointsValue {
+  font-family: "Cantora One", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 1300px) {
+  .eventCard {
+    padding: 30px 20px;
+  }
+
+  .eventCard__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .eventCard__headerInfo {
+    justify-content: flex-start;
+    min-width: 100%;
+  }
+
+  .eventCard__locationDate {
+    justify-content: flex-start;
+  }
+
+  .eventCard__title {
+    font-size: 32px;
+  }
+
+  .eventCard__sectionTitle {
+    font-size: 22px;
+  }
+
+  .eventCard__description,
+  .eventCard__tasks,
+  .eventCard__organizers,
+  .eventCard__pointsValue {
+    font-size: 22px;
+  }
+
+  .eventCard__locationDate {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .eventCard {
+    padding: 20px 15px;
+  }
+
+  .eventCard__title {
+    font-size: 28px;
+  }
+
+  .eventCard__sectionTitle {
+    font-size: 20px;
+  }
+
+  .eventCard__description,
+  .eventCard__tasks,
+  .eventCard__organizers,
+  .eventCard__pointsValue {
+    font-size: 20px;
+  }
+
+  .eventCard__locationDate {
+    font-size: 22px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .eventCard__separator {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .eventCard {
+    padding: 16px;
+  }
+
+  .eventCard__title {
+    font-size: 24px;
+  }
+
+  .eventCard__sectionTitle {
+    font-size: 18px;
+  }
+
+  .eventCard__description,
+  .eventCard__tasks,
+  .eventCard__organizers,
+  .eventCard__pointsValue {
+    font-size: 18px;
+  }
+
+  .eventCard__locationDate {
+    font-size: 18px;
+  }
+}
