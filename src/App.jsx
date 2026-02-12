@@ -7,8 +7,21 @@ import PersonalAccountPage from "./pages/personalAccount/personalAccount";
 import StatisticsPage from "./pages/statistics/statistics";
 import "./App.css";
 
+const PAGE_KEY = "appCurrentPage";
+const VALID_PAGES = ["events", "orders", "personalAccount", "statistics"];
+
 function App() {
-  const [currentPage, setCurrentPage] = useState("events");
+  const [currentPage, setCurrentPageState] = useState(() => {
+    const saved = localStorage.getItem(PAGE_KEY);
+    return VALID_PAGES.includes(saved) ? saved : "events";
+  });
+
+  const setCurrentPage = (page) => {
+    if (VALID_PAGES.includes(page)) {
+      setCurrentPageState(page);
+      localStorage.setItem(PAGE_KEY, page);
+    }
+  };
 
   const renderPage = () => {
     switch (currentPage) {

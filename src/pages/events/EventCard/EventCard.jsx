@@ -9,6 +9,8 @@ import {
   saveEventPoints,
   getTotalPointsForParticipant,
   addParticipant,
+  updateParticipant,
+  removeParticipant,
 } from "../../../utils/participantsManager";
 
 const EventCard = ({ event, onEdit }) => {
@@ -106,17 +108,42 @@ const EventCard = ({ event, onEdit }) => {
     );
   };
 
+  const handleEditParticipant = (participantId, { name, group, school }) => {
+    const updated = updateParticipant(participantId, { name, group, school });
+    if (updated) {
+      setParticipants((prev) =>
+        prev.map((p) =>
+          p.id === participantId ? { ...p, ...updated } : p
+        )
+      );
+    }
+  };
+
+  const handleDeleteParticipant = (participant) => {
+    const confirmed = window.confirm(
+      "Вы уверены, что хотите удалить этого участника?"
+    );
+    if (confirmed) {
+      removeParticipant(participant.id);
+      setParticipants((prev) => prev.filter((p) => p.id !== participant.id));
+    }
+  };
+
   const handleSaveResults = () => {
     saveEventPoints(event.id, participants);
     setRefreshKey((k) => k + 1);
     setShowToast(true);
-    setTimeout(() => setShowToast(false), 2000);
+    const scrollY = window.scrollY;
+    setTimeout(() => {
+      sessionStorage.setItem("eventsScrollPosition", String(scrollY));
+      window.location.reload();
+    }, 800);
   };
 
   return (
     <>
       {showToast && (
-        <div className="eventCard__toast">Результаты сохранены</div>
+        <div className="eventCard__toast">Изменения сохранены</div>
       )}
     <div className="eventCard">
       {/* Верхняя строка: заголовок, кнопка редактирования, адрес и дата */}
@@ -231,7 +258,7 @@ const EventCard = ({ event, onEdit }) => {
               className="eventCard__saveBtn"
               onClick={handleSaveResults}
             >
-              Сохранить результаты
+              Сохранить изменения
             </button>
           </div>
         </div>
@@ -285,6 +312,8 @@ const EventCard = ({ event, onEdit }) => {
           participants={participants}
           onPointsChange={handlePointsChange}
           participantTotals={participantTotals}
+          onEditParticipant={handleEditParticipant}
+          onDeleteParticipant={handleDeleteParticipant}
         />
       </div>
     </div>

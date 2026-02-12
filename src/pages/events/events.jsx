@@ -22,6 +22,17 @@ function EventsPage() {
   }, []);
 
   useEffect(() => {
+    const savedScroll = sessionStorage.getItem("eventsScrollPosition");
+    if (savedScroll !== null) {
+      sessionStorage.removeItem("eventsScrollPosition");
+      const y = parseInt(savedScroll, 10) || 0;
+      requestAnimationFrame(() => {
+        window.scrollTo(0, y);
+      });
+    }
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem("events", JSON.stringify(events));
   }, [events]);
 

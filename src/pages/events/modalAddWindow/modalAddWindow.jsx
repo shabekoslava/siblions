@@ -24,6 +24,12 @@ const EVENT_LEVELS = [
 
 const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 МБ
 
+const getMaxEventDate = () => {
+  const d = new Date();
+  d.setFullYear(d.getFullYear() + 3);
+  return d.toISOString().slice(0, 10);
+};
+
 const ModalAddWindow = ({
   onClose,
   onSubmit,
@@ -33,6 +39,7 @@ const ModalAddWindow = ({
 }) => {
   const modalRef = useRef(null);
   const fileInputRef = useRef(null);
+  const formRef = useRef(null);
   const descriptionRef = useRef(null);
   const tasksRef = useRef(null);
   const organizersRef = useRef(null);
@@ -86,19 +93,48 @@ const ModalAddWindow = ({
     return () => cancelAnimationFrame(timer);
   }, [formData.description, formData.tasks, formData.organizers]);
 
+  const fileDialogOpenRef = useRef(false);
+
+  const scrollPosRef = useRef(0);
+
+  useEffect(() => {
+    const onWindowBlur = () => {
+      if (fileDialogOpenRef.current && formRef.current) {
+        scrollPosRef.current = formRef.current.scrollTop;
+      }
+    };
+    const onWindowFocus = () => {
+      if (fileDialogOpenRef.current) {
+        if (formRef.current) {
+          formRef.current.scrollTop = scrollPosRef.current;
+        }
+        setTimeout(() => {
+          if (formRef.current) {
+            formRef.current.scrollTop = scrollPosRef.current;
+          }
+          fileDialogOpenRef.current = false;
+        }, 100);
+      }
+    };
+    window.addEventListener("blur", onWindowBlur);
+    window.addEventListener("focus", onWindowFocus);
+    return () => {
+      window.removeEventListener("blur", onWindowBlur);
+      window.removeEventListener("focus", onWindowFocus);
+    };
+  }, []);
+
   useEffect(() => {
     const onEsc = (e) => e.key === "Escape" && onClose();
-    const onClickOutside = (e) =>
-      modalRef.current && !modalRef.current.contains(e.target) && onClose();
-
     document.addEventListener("keydown", onEsc);
-    document.addEventListener("mousedown", onClickOutside);
-
-    return () => {
-      document.removeEventListener("keydown", onEsc);
-      document.removeEventListener("mousedown", onClickOutside);
-    };
+    return () => document.removeEventListener("keydown", onEsc);
   }, [onClose]);
+  const handleOverlayClick = (e) => {
+    if (fileDialogOpenRef.current) return;
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -108,17 +144,34 @@ const ModalAddWindow = ({
     }
   };
 
+  const [fileError, setFileError] = useState("");
+
+  const handleFileClick = () => {
+    fileDialogOpenRef.current = true;
+    if (formRef.current) {
+      scrollPosRef.current = formRef.current.scrollTop;
+    }
+  };
+
   const handleFileChange = (e) => {
+    fileDialogOpenRef.current = false;
     const file = e.target.files?.[0];
+    
     if (!file) {
-      setFormData((p) => ({ ...p, attachedFileName: "", attachedFileData: "" }));
+      setFileError("");
       return;
     }
+
+    // Проверка размера
     if (file.size > MAX_FILE_SIZE) {
-      alert("Файл слишком большой. Максимум 2 МБ.");
-      e.target.value = "";
+      setFileError("Файл слишком большой. Максимум 2 МБ.");
+      if (fileInputRef.current) fileInputRef.current.value = "";
+      // Сбрасываем имя файла в стейте, чтобы не висело старое
+      setFormData(p => ({ ...p, attachedFileName: "", attachedFileData: "" }));
       return;
     }
+
+    setFileError("");
     const reader = new FileReader();
     reader.onload = () => {
       setFormData((p) => ({
@@ -128,11 +181,12 @@ const ModalAddWindow = ({
       }));
     };
     reader.readAsDataURL(file);
-    e.target.value = "";
   };
 
-  const handleRemoveFile = () => {
+  const handleRemoveFile = (e) => {
+    e.stopPropagation(); // Важно: чтобы клик по "Удалить" не триггернул открытие файла
     setFormData((p) => ({ ...p, attachedFileName: "", attachedFileData: "" }));
+    setFileError("");
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
 
@@ -150,9 +204,13 @@ const ModalAddWindow = ({
   };
 
   return (
-    <div className="modalOverlay">
-      <div className="modalWindow" ref={modalRef}>
-        <form className="modalContent" onSubmit={handleSubmit}>
+    <div className="modalOverlay" onClick={handleOverlayClick}>
+      <div 
+        className="modalWindow" 
+        ref={modalRef} 
+        onClick={(e) => e.stopPropagation()} // Блокируем всплытие клика к оверлею
+      >
+        <form className="modalContent" ref={formRef} onSubmit={handleSubmit}>
           {/* 1. Название мероприятия */}
           <div className="formGroup">
             <label className="formLabel required">
@@ -200,6 +258,7 @@ const ModalAddWindow = ({
               name="date"
               value={formData.date}
               onChange={handleChange}
+              max={getMaxEventDate()}
               required
             />
           </div>
@@ -288,7 +347,7 @@ const ModalAddWindow = ({
               <input
                 ref={fileInputRef}
                 type="file"
-                accept=".pdf,.doc,.docx,.txt,.png,.jpg,.jpeg"
+                accept=".pdf,.doc,.docx,.txt"
                 onChange={handleFileChange}
                 className="formFileInput"
                 id="event-attachment"
@@ -296,9 +355,11 @@ const ModalAddWindow = ({
               <label
                 htmlFor="event-attachment"
                 className={`formFileLabel ${formData.attachedFileName ? "formFileLabel--hasFile" : ""}`}
+                onClick={handleFileClick}
               >
                 {formData.attachedFileName || "Выберите файл"}
               </label>
+              
               {formData.attachedFileName && (
                 <button
                   type="button"
@@ -310,7 +371,8 @@ const ModalAddWindow = ({
                 </button>
               )}
             </div>
-            <span className="formFileHint">Макс. 2 МБ. PDF, DOC, TXT, изображения.</span>
+            <span className="formFileHint">Макс. 2 МБ. PDF, DOC, DOCX, TXT.</span>
+            {fileError && <span className="formFileError">{fileError}</span>}
           </div>
 
           {/* Кнопки */}

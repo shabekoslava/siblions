@@ -41,15 +41,17 @@ const PersonalAccountPage = () => {
           </div>
         </div>
 
-        {/* Пример контента внутри рамки */}
         <div className="accountSections">
-          <div className="sectionContent">
-            <h3 className="sectionTitle">Пример информации</h3>
-            <p className="exampleData">
-              Здесь может быть любая информация о пользователе: контакты, роли,
-              настройки и т.д.
-            </p>
-          </div>
+          <button
+            type="button"
+            className="accountLogoutBtn"
+            onClick={() => {
+              localStorage.removeItem("userData");
+              alert("Вы вышли из аккаунта");
+            }}
+          >
+            Выйти из аккаунта
+          </button>
         </div>
       </div>
     </section>

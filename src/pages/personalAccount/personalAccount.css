@@ -70,35 +70,30 @@
   text-align: right;
 }
 
-/* Дополнительные секции (можно добавить позже) */
 .accountSections {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-.sectionTitle {
+.accountLogoutBtn {
   font-family: "Kontora", sans-serif;
-  font-weight: 600;
-  font-size: 24px;
-  color: rgba(0, 52, 102, 1);
-  margin: 0 0 15px 0;
+  font-weight: 500;
+  font-size: 16px;
+  color: #b71c1c;
+  background: #ffebee;
+  border: 1px solid #c62828;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: fit-content;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
-/* Контент секций */
-.sectionContent {
-  background: #f8fafc;
-  border-radius: 12px;
-  padding: 20px;
-  border: 1px solid #e2e8f0;
-}
-
-/* Пример данных (можно заменить реальными) */
-.exampleData {
-  font-family: "Cantora One", sans-serif;
-  font-size: 18px;
-  color: #333;
-  line-height: 1.6;
+.accountLogoutBtn:hover {
+  background: #b71c1c;
+  color: #fff;
+  border-color: #8b0000;
 }
 
 /* Кнопки действий (если понадобятся) */
@@ -206,13 +201,5 @@
 
   .accountInfoContainer {
     padding: 16px;
-  }
-
-  .sectionContent {
-    padding: 15px;
-  }
-
-  .exampleData {
-    font-size: 16px;
   }
 }
