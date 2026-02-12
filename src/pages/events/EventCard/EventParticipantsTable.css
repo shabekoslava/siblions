@@ -1,0 +1,231 @@
+@import url("/src/assets/fonts/fonts.css");
+@import url("/src/assets/colors/colors.css");
+
+.participantsTable {
+  width: 1243px;
+  height: 456px;
+  background: white;
+  border: 1px solid #d5e2f1;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.tableHeader {
+  background: #f8fafd;
+  border-bottom: 1px solid #d5e2f1;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.tableBody {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.tableRow {
+  display: flex;
+  align-items: center;
+  min-height: 60px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableRow:hover {
+  background-color: #f9f9f9;
+}
+
+.tableCell {
+  padding: 15px 20px;
+  font-family: "Kontora", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Ширины столбцов */
+.tableCell.number {
+  width: 60px;
+  min-width: 60px;
+  justify-content: center;
+  font-weight: 600;
+  padding-left: 20px;
+}
+
+.tableCell.name {
+  flex: 2;
+  min-width: 200px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* Бейдж с общими баллами */
+.totalPointsBadge {
+  font-size: 12px;
+  color: #2e7d32;
+  background-color: #e8f5e9;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.tableCell.group {
+  flex: 1;
+  min-width: 120px;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.tableCell.school {
+  flex: 1;
+  min-width: 180px;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+/* Баллы — выравнивание по центру */
+.tableCell.points {
+  flex: 0 0 110px;
+  width: 110px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Заголовок "Баллы" — точное центрирование */
+.tableHeader .tableCell.points {
+  display: block;
+  text-align: center;
+}
+
+.tableCell.total {
+  flex: 1;
+  min-width: 120px;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  color: var(--blueColor);
+  padding-right: 20px;
+}
+
+/* Поле ввода баллов */
+.pointsInput {
+  width: 70px;
+  padding: 6px 10px;
+  font-family: "Kontora", sans-serif;
+  font-size: 16px;
+  color: #333;
+  border: 1px solid #d5e2f1;
+  border-radius: 8px;
+  text-align: center;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.pointsInput:focus {
+  border-color: var(--blueColor);
+}
+
+.pointsInput::-webkit-outer-spin-button,
+.pointsInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.pointsInput[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Стилизация скроллбара таблицы */
+.tableBody::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tableBody::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.tableBody::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.tableBody::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Адаптивность */
+@media (max-width: 1300px) {
+  .participantsTable {
+    width: 100%;
+    max-width: 1243px;
+  }
+}
+
+@media (max-width: 768px) {
+  .participantsTable {
+    height: 400px;
+  }
+
+  .tableCell {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .tableCell.number {
+    width: 40px;
+    min-width: 40px;
+  }
+
+  .tableCell.name {
+    min-width: 160px;
+  }
+
+  .tableCell.number {
+    padding-left: 16px;
+  }
+
+  .tableCell.group,
+  .tableCell.school {
+    min-width: 100px;
+  }
+
+  .tableCell.points {
+    flex: 0 0 90px;
+    width: 90px;
+    min-width: 90px;
+  }
+
+  .tableCell.total {
+    min-width: 100px;
+    padding-right: 16px;
+  }
+
+  .pointsInput {
+    width: 55px;
+    font-size: 14px;
+    padding: 5px 8px;
+  }
+
+  .totalPointsBadge {
+    font-size: 10px;
+    padding: 1px 6px;
+  }
+}

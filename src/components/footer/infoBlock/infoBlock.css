@@ -1,0 +1,67 @@
+@import url("/src/assets/fonts/fonts.css");
+@import url("/src/assets/colors/colors.css");
+
+.infoBlock {
+  width: 100%;
+  font-family: Kontora, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.infoBlockContainer {
+  width: 100%;
+  max-width: 1200px;
+
+  display: flex;
+  justify-content: flex-start;
+}
+
+.infoBlockMenu {
+  display: flex;
+  gap: 66px;
+  align-items: flex-start;
+  color: var(--whiteColor);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.infoBlockMenuItem {
+  cursor: pointer;
+}
+
+.contacts {
+  cursor: default;
+}
+
+/* Группа: Заголовок + список */
+.infoBlockContactGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Отступ от слова КОНТАКТЫ до первого номера */
+}
+
+/* Список должностей */
+.infoBlockContactsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Расстояние между Руководителем и Пресс-службой */
+}
+
+/* Блок внутри (Должность над Номером) */
+.infoBlockContact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.infoBlockRole {
+  font-weight: 100;
+  font-size: 15px;
+  opacity: 0.56;
+}
+
+.infoBlockPhone {
+  font-weight: 400;
+  font-size: 15px;
+  white-space: nowrap;
+}

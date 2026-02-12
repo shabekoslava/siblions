@@ -1,0 +1,291 @@
+@import url("/src/assets/fonts/fonts.css");
+@import url("/src/assets/colors/colors.css");
+
+.ordersPage {
+  width: 100%;
+  max-width: 1366px;
+  padding: 40px 29px;
+  margin: 0 auto;
+}
+
+.ordersContentContainer {
+  width: 100%;
+  max-width: 1308px;
+  margin: 0 auto;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0px 0px 6px 2px rgba(0, 52, 102, 0.42);
+}
+
+.ordersTitleContainer {
+  width: 100%;
+  height: 97px;
+  background: linear-gradient(90deg, #003466 0%, #004d97 100%);
+  display: flex;
+  align-items: center;
+  padding: 25px 20px 17px 20px;
+  box-sizing: border-box;
+  border-radius: 25px 25px 0 0;
+}
+
+.ordersTitle {
+  font-family: "Kontora", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: #ffffff;
+  margin: 0;
+  width: 100%;
+}
+
+.ordersMainContent {
+  background: #ffffff;
+  border-radius: 0 0 25px 25px;
+  padding: 0;
+  overflow-x: auto;
+}
+
+/* Таблица */
+.ordersTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Kontora", sans-serif;
+  min-width: 800px;
+}
+
+.ordersTable thead {
+  background: #f8fafc;
+}
+
+/* Заголовки таблицы */
+.ordersTable th {
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 16px;
+  color: #003466;
+  border-bottom: 1px solid #e2e8f0;
+  white-space: nowrap;
+}
+
+/* Ячейки таблицы */
+.ordersTable td {
+  padding: 15px;
+  font-size: 15px;
+  color: #333333;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: top;
+}
+
+.ordersTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.ordersTable tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Колонка № - исправленная */
+.orderNumber {
+  width: 5%;
+  min-width: 50px;
+}
+
+.ordersTable th.orderNumber {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ordersTable td.orderNumber {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+  font-weight: 600;
+  color: #003466;
+}
+
+/* Колонка ФИО */
+.orderCustomer {
+  width: 25%;
+  min-width: 200px;
+}
+
+.ordersTable th.orderCustomer,
+.ordersTable td.orderCustomer {
+  padding-left: 15px;
+}
+
+/* Колонка Группа - исправленная */
+.orderGroup {
+  width: 10%;
+  min-width: 80px;
+}
+
+.ordersTable th.orderGroup {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ordersTable td.orderGroup {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+  font-weight: 500;
+}
+
+/* Колонка Товары */
+.orderProducts {
+  width: 35%;
+  min-width: 250px;
+}
+
+.ordersTable th.orderProducts,
+.ordersTable td.orderProducts {
+  padding-left: 15px;
+}
+
+/* Колонка Статус */
+.orderStatus {
+  width: 15%;
+  min-width: 150px;
+}
+
+.ordersTable th.orderStatus,
+.ordersTable td.orderStatus {
+  padding-left: 15px;
+}
+
+/* Товары в столбик */
+.productItem {
+  display: block;
+  padding: 4px 0;
+  border-bottom: 1px solid #f1f5f9;
+  margin: 0;
+}
+
+.productItem:last-child {
+  border-bottom: none;
+}
+
+/* Выпадающий список статусов */
+.statusSelect {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #333333;
+  font-family: "Kontora", sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23003466' d='M6 8L2 4h8z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  padding-right: 35px;
+}
+
+.statusSelect:focus {
+  outline: none;
+  border-color: #003466;
+  box-shadow: 0 0 0 2px rgba(0, 52, 102, 0.1);
+}
+
+/* Кнопки действий */
+.actionButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  padding: 20px 30px;
+  background: #ffffff;
+  border-radius: 0 0 25px 25px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.saveButton {
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid #003466;
+  background: #003466;
+  color: #ffffff;
+  font-family: "Kontora", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.saveButton:hover {
+  background: #004d97;
+  border-color: #004d97;
+}
+
+.noOrdersContainer {
+  padding: 60px 20px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 0 0 25px 25px;
+}
+
+.noOrdersMessage {
+  color: #666;
+  font-size: 18px;
+  font-family: "Kontora", sans-serif;
+  margin: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .ordersMainContent {
+    overflow-x: auto;
+  }
+
+  .ordersTable {
+    min-width: 600px;
+  }
+
+  .ordersTable th,
+  .ordersTable td {
+    padding: 12px 8px;
+    font-size: 14px;
+  }
+
+  .ordersTable th.orderNumber,
+  .ordersTable td.orderNumber {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .ordersTable th.orderGroup,
+  .ordersTable td.orderGroup {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .ordersTable th.orderCustomer,
+  .ordersTable td.orderCustomer,
+  .ordersTable th.orderProducts,
+  .ordersTable td.orderProducts,
+  .ordersTable th.orderStatus,
+  .ordersTable td.orderStatus {
+    padding-left: 8px;
+  }
+
+  .ordersTitle {
+    font-size: 24px;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .saveButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+

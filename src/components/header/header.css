@@ -1,0 +1,38 @@
+@import url("/src/assets/fonts/fonts.css");
+@import url("/src/assets/colors/colors.css");
+
+.headerWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  width: 100%;
+  max-width: 1366px;
+  height: 148px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--whiteColor);
+}
+
+.headerLogo {
+  margin-left: 29px;
+  width: 160px;
+  height: 160px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.navigation {
+  margin-right: 56px;
+}

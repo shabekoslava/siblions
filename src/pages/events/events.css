@@ -1,0 +1,38 @@
+@import url("/src/assets/fonts/fonts.css");
+@import url("/src/assets/colors/colors.css");
+
+.eventsPage {
+  padding: 40px 29px;
+  min-height: calc(100vh - 120px);
+  width: 100%;
+  max-width: 1366px; /* как у хедера — та же ширина, прижато влево в общем потоке */
+}
+
+.eventsHeaderSection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.eventsTabsContainer {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.eventsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start; /* без центрирования — как при наличии карточек */
+}
+
+.noEventsMessage {
+  text-align: left;
+  color: #666;
+  font-size: 18px;
+  font-family: "Kontora", sans-serif;
+  padding: 0;
+  margin: 0;
+}

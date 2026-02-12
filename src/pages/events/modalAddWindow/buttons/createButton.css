@@ -1,0 +1,25 @@
+@import url("/src/assets/fonts/fonts.css");
+@import url("/src/assets/colors/colors.css");
+
+.createButton {
+  font-family: "Kontora", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  height: 58px;
+  width: 328px;
+  box-sizing: border-box;
+  border: var(--blueColor) 2px solid;
+  border-radius: 25px;
+  cursor: pointer;
+  background: var(--blueColor);
+  color: var(--whiteColor);
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.createButton:hover {
+  background: var(--blueHoverColor);
+  border: var(--blueHoverColor) 2px solid;
+}

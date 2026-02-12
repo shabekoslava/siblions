@@ -1,0 +1,16 @@
+:root {
+  --blueColor: #003466;
+  --blueColor-rgb: 0, 52, 102;
+  --darkBlueColor: #002244;
+  --blackColor: #000000;
+  --whiteColor: #ffffff;
+  --greenColor: #28be46;
+  --blueHoverColor: #1754a1;
+  --inactiveTextColor: #00346687;
+  --inactiveButtonEventsPageBackground: #eaecf0;
+  --inactiveButtonEventsPageBorder: #eaecf0;
+  --inactiveButtonEventsPageShadow: #00000040;
+  --inactiveButtonEventsPageText: #00346673;
+  --inactiveButtonEventsPageBorderHover: #f8f8f80a;
+  --inactiveButtonEventsPageTextHover: #003466;
+}

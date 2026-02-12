@@ -1,0 +1,218 @@
+@import url("/src/assets/fonts/fonts.css");
+@import url("/src/assets/colors/colors.css");
+
+.personalAccountPage {
+  width: 100%;
+  max-width: 1366px;
+  padding: 40px 29px;
+  margin: 0 auto;
+}
+
+/* Заголовок страницы */
+.personalAccountTitle {
+  font-family: "Kontora", sans-serif;
+  font-weight: 700;
+  font-style: bold;
+  font-size: 55px;
+  color: rgba(0, 52, 102, 1);
+  margin: 0 0 40px 0;
+  line-height: 1.2;
+}
+
+/* Основное окно с информацией */
+.accountInfoContainer {
+  width: 100%;
+  max-width: 1308px;
+  background: #ffffff;
+  border-radius: 25px;
+  padding: 40px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 6px 2px rgba(0, 52, 102, 0.42);
+  margin: 0 auto;
+}
+
+/* Верхняя строка с ФИО и должностью */
+.accountHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+/* ФИО слева */
+.accountName {
+  font-family: "Kontora", sans-serif;
+  font-weight: 700;
+  font-style: bold;
+  font-size: 38px;
+  color: rgba(0, 52, 102, 1);
+  margin: 0;
+  flex: 1;
+}
+
+/* Должность и организация справа */
+.accountPosition {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.positionTitle {
+  font-family: "Kontora", sans-serif;
+  font-weight: 400;
+  font-style: regular;
+  font-size: 30px;
+  color: rgba(0, 52, 102, 1);
+  margin: 0;
+  text-align: right;
+}
+
+/* Дополнительные секции (можно добавить позже) */
+.accountSections {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.sectionTitle {
+  font-family: "Kontora", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: rgba(0, 52, 102, 1);
+  margin: 0 0 15px 0;
+}
+
+/* Контент секций */
+.sectionContent {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+/* Пример данных (можно заменить реальными) */
+.exampleData {
+  font-family: "Cantora One", sans-serif;
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Кнопки действий (если понадобятся) */
+.accountActions {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 2px solid #f1f5f9;
+}
+
+.actionButton {
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid #003466;
+  background: #ffffff;
+  color: #003466;
+  font-family: "Kontora", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.actionButton:hover {
+  background: #003466;
+  color: #ffffff;
+}
+
+/* Адаптивность */
+@media (max-width: 1300px) {
+  .personalAccountPage {
+    padding: 30px 20px;
+  }
+
+  .accountInfoContainer {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .personalAccountPage {
+    padding: 20px 15px;
+  }
+
+  .personalAccountTitle {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
+  .accountInfoContainer {
+    padding: 20px;
+  }
+
+  .accountHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+  }
+
+  .accountName {
+    font-size: 30px;
+    width: 100%;
+  }
+
+  .accountPosition {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .positionTitle {
+    text-align: left;
+    font-size: 24px;
+  }
+
+  .sectionTitle {
+    font-size: 20px;
+  }
+
+  .accountActions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .actionButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .personalAccountTitle {
+    font-size: 32px;
+  }
+
+  .accountName {
+    font-size: 26px;
+  }
+
+  .positionTitle {
+    font-size: 20px;
+  }
+
+  .accountInfoContainer {
+    padding: 16px;
+  }
+
+  .sectionContent {
+    padding: 15px;
+  }
+
+  .exampleData {
+    font-size: 16px;
+  }
+}

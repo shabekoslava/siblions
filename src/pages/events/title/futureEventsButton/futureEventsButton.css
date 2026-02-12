@@ -1,0 +1,38 @@
+@import url("/src/assets/fonts/fonts.css");
+@import url("/src/assets/colors/colors.css");
+
+.futureEventsButton {
+  font-family: "Kontora", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  height: 35px;
+  width: 114px;
+  box-sizing: border-box;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.futureEventsButton--inactive {
+  background: var(--inactiveButtonEventsPageBackground);
+  color: var(--inactiveButtonEventsPageText);
+  border: var(--inactiveButtonEventsPageBorder) 2px solid;
+  border-radius: 25px;
+  box-shadow: 0px 0px 4px 2px var(--inactiveButtonEventsPageShadow);
+}
+
+.futureEventsButton--inactive:hover {
+  color: var(--inactiveButtonEventsPageTextHover);
+  border: var(--inactiveButtonEventsPageBorderHover) 2px solid;
+}
+
+.futureEventsButton--active {
+  background: var(--whiteColor);
+  color: var(--blueColor);
+  box-shadow: 0px 0px 4px 2px var(--blueColor);
+  border: var(--blueColor) 2px solid;
+  border-radius: 25px;
+}

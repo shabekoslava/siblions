@@ -1,0 +1,345 @@
+@import url("/src/assets/fonts/fonts.css");
+@import url("/src/assets/colors/colors.css");
+
+/* ===== Overlay ===== */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 40px;
+  overflow: hidden; /* убираем скролл оверлея — скроллится только форма внутри карточки */
+}
+
+/* ===== Modal window ===== */
+.modalWindow {
+  width: 1254px;
+  height: 970px;
+  max-width: calc(100vw - 80px);
+  max-height: calc(100vh - 80px);
+  background: #ffffff;
+  border-radius: 25px;
+  border: 1px solid #d5e2f1;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ===== Scrollable content ===== */
+.modalContent {
+  padding: 40px 13px 44px 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden; /* без горизонтального скролла */
+  box-sizing: border-box;
+}
+
+/* ===== Form group with label ===== */
+.formGroup {
+  width: 1228px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 7px; /* 15px gap - 5px между label и input - 3px на отступ = 7px */
+}
+
+.formLabel {
+  font-family: "Kontora", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--blueColor);
+  margin-left: 10px;
+}
+
+.formLabel.required::after {
+  content: " *";
+  color: #dc3545;
+}
+
+/* ===== Inputs and Textareas ===== */
+.modalContent input,
+.modalContent textarea {
+  width: 100%;
+  height: 111px;
+  border-radius: 25px;
+  border: 1px solid #d5e2f1;
+  font-family: "Kontora", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: var(--blueColor);
+  box-sizing: border-box;
+  resize: none;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  padding: 41px 39px 41px 33px;
+  display: flex;
+  align-items: center;
+}
+
+/* Placeholder */
+.modalContent input::placeholder {
+  color: var(--inactiveTextColor);
+  font-family: "Kontora", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1;
+}
+
+/* Плейсхолдер в текстареях — по центру по вертикали, тот же line-height что и текст */
+.modalContent textarea::placeholder {
+  color: var(--inactiveTextColor);
+  font-family: "Kontora", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.4;
+}
+
+/* Focus state */
+.modalContent input:focus,
+.modalContent textarea:focus {
+  border-color: var(--blueColor);
+  box-shadow: 0 0 0 2px rgba(11, 60, 117, 0.1);
+}
+
+/* Textarea — без скроллбара; отступы центрируют одну строку по вертикали (плейсхолдер и текст на одном уровне) */
+.modalContent textarea {
+  min-height: 111px;
+  line-height: 1.4;
+  overflow: hidden;
+  resize: none;
+  align-items: flex-start;
+  padding: 34px 39px 34px 33px; /* (111 - 42)/2 ≈ 34 — одна строка по центру по вертикали */
+}
+
+/* ===== Прикрепление файла ===== */
+.formFileRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  height: 111px;
+  border-radius: 25px;
+  border: 1px solid #d5e2f1;
+  padding: 0 33px;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+.formFileInput {
+  position: absolute;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.formFileLabel {
+  flex: 1;
+  font-family: "Kontora", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: var(--inactiveTextColor);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.formFileLabel--hasFile {
+  color: var(--blueColor);
+}
+
+.formFileRemove {
+  font-family: "Kontora", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--blueColor);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.formFileRemove:hover {
+  background: rgba(11, 60, 117, 0.08);
+}
+
+.formFileHint {
+  font-family: "Kontora", sans-serif;
+  font-size: 16px;
+  color: var(--inactiveTextColor);
+  margin-top: 6px;
+  margin-left: 10px;
+}
+
+/* ===== Buttons container ===== */
+.modalButtonsWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 44px;
+  padding: 0;
+  gap: 76px;
+}
+
+/* Одна кнопка */
+.modalButtonsWrapper.one-button {
+  justify-content: center;
+}
+
+/* Две кнопки */
+.modalButtonsWrapper.two-buttons {
+  justify-content: center;
+}
+
+/* ===== Button styles ===== */
+.modalButtonsWrapper .createButton,
+.modalButtonsWrapper .updateButton,
+.modalButtonsWrapper .deleteButton {
+  width: 328px;
+  height: 58px;
+  font-family: "Kontora", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  border: 2px solid var(--blueColor);
+  border-radius: 25px;
+  background: var(--blueColor);
+  color: var(--whiteColor);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.modalButtonsWrapper .createButton:hover,
+.modalButtonsWrapper .updateButton:hover {
+  background: var(--blueHoverColor);
+  border-color: var(--blueHoverColor);
+}
+
+.modalButtonsWrapper .deleteButton {
+  background: #dc3545;
+  border-color: #dc3545;
+}
+
+.modalButtonsWrapper .deleteButton:hover {
+  background: #c82333;
+  border-color: #c82333;
+}
+
+/* Bottom border */
+.modalBottomBorder {
+  height: 1px;
+  width: 1228px;
+  max-width: 100%;
+  background: #d5e2f1;
+  border-radius: 1px;
+  margin-top: 28px;
+}
+
+/* ===== Custom scrollbar ===== */
+.modalContent::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modalContent::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+  margin: 40px 0 44px 0;
+}
+
+.modalContent::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.modalContent::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1300px) {
+  .formGroup,
+  .modalBottomBorder {
+    width: calc(100% - 26px);
+  }
+
+  .modalContent {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modalOverlay {
+    padding: 20px;
+  }
+
+  .modalWindow {
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 40px);
+  }
+
+  .modalContent {
+    padding: 30px 13px 30px 13px;
+    gap: 10px;
+  }
+
+  .formLabel {
+    font-size: 16px;
+    margin-left: 5px;
+  }
+
+  .modalContent input,
+  .modalContent textarea {
+    height: 80px;
+    font-size: 24px;
+    padding: 0 20px;
+  }
+
+  .formFileRow {
+    height: 80px;
+    padding: 0 20px;
+  }
+
+  .formFileLabel {
+    font-size: 24px;
+  }
+
+  .modalContent input::placeholder,
+  .modalContent textarea::placeholder {
+    font-size: 24px;
+  }
+
+  .modalButtonsWrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .modalButtonsWrapper .createButton,
+  .modalButtonsWrapper .updateButton,
+  .modalButtonsWrapper .deleteButton {
+    width: 280px;
+    height: 50px;
+    font-size: 22px;
+  }
+}
