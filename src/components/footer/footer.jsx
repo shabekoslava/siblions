@@ -44,7 +44,7 @@ export default function Footer({ onPageChange }) {
         <div className="footer__centered-wrapper">
           <div className="footer__container">
             <p className="footer__copyright">
-              © 2025 Национальный исследовательский Томский политехнический
+              © 2026 Национальный исследовательский Томский политехнический
               университет
             </p>
           </div>
